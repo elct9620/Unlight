@@ -1,0 +1,31 @@
+--- client/src/Unlight-config.xml
++++ client/src/Unlight-config.xml
+@@ -71,7 +71,11 @@
+          <value>false</value>
+      </define>
+      <define>
+-         <name>CONFIG::LOCALE_FR</name>
++       <name>CONFIG::LOCALE_SCN</name>
++       <value>false</value>
++     </define>
++     <define>
++       <name>CONFIG::LOCALE_FR</name>
+          <value>false</value>
+      </define>
+      <define>
+@@ -171,6 +175,15 @@
+          <value>true</value>
+      </define>
+
++     <define>
++       <name>CONFIG::QUEST_CHARA_VOTE_ON</name>
++       <value>false</value>
++     </define>
++     <define>
++       <name>CONFIG::WC_COMBINE_LIST_UNCHECK</name>
++       <value>false</value>
++     </define>
++
+      <debug>true</debug>
+ </compiler>
+ <default-background-color>0x000000</default-background-color>

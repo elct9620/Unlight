@@ -1,0 +1,21 @@
+version: '3'
+services:
+  builder:
+    build: .
+    image: unlight:builder
+    volumes:
+      - ./dist:/app/dist
+    # command: ./build
+    depends_on:
+      - db
+      - memcached
+  db:
+    image: mysql:5.7
+    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    environment:
+      MYSQL_DATABASE: unlight_db
+      MYSQL_USER: unlight
+      MYSQL_PASSWORD: unlight
+      MYSQL_ROOT_PASSWORD: unlight
+  memcached:
+    image: memcached:1.5.16-alpine

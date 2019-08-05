@@ -1,0 +1,18 @@
+--- server/src/unlight.rb
++++ server/src/unlight.rb
+@@ -179,3 +179,15 @@
+
+
+ end
++
++class String
++  def blank?
++    self.length == 0
++  end
++end
++
++class Array
++  def blank?
++    self.length == 0
++  end
++end

@@ -1,0 +1,4 @@
+*.ttf
+*.otf
+dist/*
+!dist/public
