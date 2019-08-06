@@ -60,7 +60,7 @@ RUN cp /app/server/src/db_config.rb_orig /app/server/src/db_config.rb \
     && cp /app/server/src/constants/locale_constants.rb_sb /app/server/src/constants/locale_constants.rb \
     # Missing
     && cp /app/server/src/constants/locale_constants.rb_sb /app/server/src/constants/locale_constants.rb_tcn \
-    && cp /app/client/src/Unlight-config.orig /app/client/src/Unlight-config.xml
+    && cp /app/client/src/Unlight-config_sandbox.xml /app/client/src/Unlight-config.xml
 
 RUN patch -p0 < patches/db_config.rb.patch \
     && patch -p0 < patches/import_csv_data.rb.patch \

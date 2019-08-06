@@ -2,3 +2,4 @@
 *.otf
 dist/*
 !dist/public
+assets/public/*.xml

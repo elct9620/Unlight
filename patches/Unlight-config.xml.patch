@@ -1,31 +1,33 @@
 --- client/src/Unlight-config.xml
 +++ client/src/Unlight-config.xml
-@@ -71,7 +71,11 @@
-          <value>false</value>
-      </define>
-      <define>
--         <name>CONFIG::LOCALE_FR</name>
-+       <name>CONFIG::LOCALE_SCN</name>
-+       <value>false</value>
-+     </define>
-+     <define>
-+       <name>CONFIG::LOCALE_FR</name>
-          <value>false</value>
-      </define>
-      <define>
-@@ -171,6 +175,15 @@
-          <value>true</value>
-      </define>
-
-+     <define>
-+       <name>CONFIG::QUEST_CHARA_VOTE_ON</name>
-+       <value>false</value>
-+     </define>
-+     <define>
-+       <name>CONFIG::WC_COMBINE_LIST_UNCHECK</name>
-+       <value>false</value>
-+     </define>
-+
-      <debug>true</debug>
- </compiler>
- <default-background-color>0x000000</default-background-color>
+@@ -2,9 +2,9 @@
+ <flex-config>
+    <target-player>10.0.12</target-player>
+ <compiler>
+-  <external-library-path>
+-    <path-element>../lib/as3crypto.swc</path-element>
+-  </external-library-path>
++  <include-libraries>
++    <library>../lib/as3crypto.swc</library>
++  </include-libraries>
+   <source-path>
+     <path-element>.</path-element>
+     <path-element>../lib</path-element>
+@@ -56,7 +56,7 @@
+   </define>
+   <define>
+     <name>CONFIG::LOCALE_JP</name>
+-    <value>true</value>
++    <value>false</value>
+   </define>
+   <define>
+     <name>CONFIG::LOCALE_EN</name>
+@@ -68,7 +68,7 @@
+   </define>
+   <define>
+     <name>CONFIG::LOCALE_TCN</name>
+-    <value>false</value>
++    <value>true</value>
+   </define>
+   <define>
+     <name>CONFIG::LOCALE_SCN</name>
