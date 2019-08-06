@@ -5,10 +5,19 @@ services:
     image: unlight:builder
     volumes:
       - ./dist:/app/dist
-    # command: ./build
+    command: ./build
     depends_on:
       - db
       - memcached
+  authserver:
+    image: unlight:builder
+    command: ./serve authentication 12001
+    ports:
+      - '12001:12001'
+      - '11999:11999' # XMLSocket for Flash Policy
+    depends_on:
+      - builder
+  # TODO: Add all servers
   db:
     image: mysql:5.7
     command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci

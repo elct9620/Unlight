@@ -1,0 +1,11 @@
+--- server/src/constants/constants.rb
++++ server/src/constants/constants.rb
+@@ -400,7 +400,7 @@
+   end
+
+   # ログの出力先
+-  SERVER_LOG = Logger.new(File.dirname(__FILE__).gsub("src/constants","")+"bin/pids/#{$SERVER_NAME}.log", 128, 10*1024*1024)
++  SERVER_LOG = Logger.new(STDOUT)
+   # ログレベル
+ #  SERVER_LOG.level = Logger::DEBUG
+   SERVER_LOG.level = Logger::INFO

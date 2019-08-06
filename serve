@@ -1,0 +1,13 @@
+#!/bin/bash
+
+cd /app/server
+# Create constdata_keys_jp.rb
+ruby script/update_const_keys.rb
+# TODO: constdata_keys.rb not exists
+cp script/constdata_keys_jp.rb script/constdata_keys.rb
+
+# Not started by default
+/etc/init.d/xinetd start
+
+# Start server
+ruby -roptparse src/$1.rb -p $2

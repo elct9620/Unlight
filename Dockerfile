@@ -15,7 +15,8 @@ RUN apt-get update \
             build-essential \
             sqlite3 \
             libsqlite3-dev \
-            memcached \
+            xinetd \
+            netcat \
     && apt-get purge -y --auto-remove \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* \
@@ -48,6 +49,10 @@ ADD fonts/cwming.ttf /app/client/data
 
 ADD patches/ /app/patches
 ADD build /app
+ADD serve /app
+
+# Setup XMLSocket
+RUN cd /app/server/script/Perl_xinetd && ./install.sh
 
 # Prepare necessary directory
 RUN mkdir -p /app/server/bin/pids \
@@ -60,6 +65,7 @@ RUN cp /app/server/src/db_config.rb_orig /app/server/src/db_config.rb \
     && cp /app/server/src/constants/locale_constants.rb_sb /app/server/src/constants/locale_constants.rb \
     # Missing
     && cp /app/server/src/constants/locale_constants.rb_sb /app/server/src/constants/locale_constants.rb_tcn \
+    && cp /app/server/src/net/crypt.rb_orig /app/server/src/net/crypt.rb \
     && cp /app/client/src/Unlight-config_sandbox.xml /app/client/src/Unlight-config.xml
 
 RUN patch -p0 < patches/db_config.rb.patch \
@@ -67,4 +73,7 @@ RUN patch -p0 < patches/db_config.rb.patch \
     && patch -p0 < patches/unlight.rb.patch \
     && patch -p0 < patches/create_const_data.rb.patch \
     && patch -p0 < patches/Unlight-config.xml.patch \
-    && patch -p0 < patches/create_font_swf.rb.patch
+    && patch -p0 < patches/create_font_swf.rb.patch \
+    && patch -p0 < patches/constants.rb.patch \
+    # For run server inside docker
+    && patch -p0 < patches/server.patch
