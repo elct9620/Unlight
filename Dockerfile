@@ -74,4 +74,6 @@ RUN patch -p0 < patches/db_config.rb.patch \
     && patch -p0 < patches/create_font_swf.rb.patch \
     && patch -p0 < patches/constants.rb.patch \
     # For run server inside docker
-    && patch -p0 < patches/server.patch
+    && patch -p0 < patches/server.patch \
+    # For direct test game
+    && patch -p0 < patches/disable_encrypt.patch

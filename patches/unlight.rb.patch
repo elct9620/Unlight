@@ -1,9 +1,10 @@
 --- server/src/unlight.rb
 +++ server/src/unlight.rb
-@@ -179,3 +179,15 @@
+@@ -179,3 +179,22 @@ module Unlight
 
 
  end
++
 +
 +class String
 +  def blank?
@@ -14,5 +15,11 @@
 +class Array
 +  def blank?
 +    self.length == 0
++  end
++end
++
++class Fixnum
++  def blank?
++    self == 0
 +  end
 +end

@@ -70,6 +70,21 @@ services:
     command: serve global_chat 12020
     ports:
       - '12020:12020'
+  game_server:
+    <<: *image
+    command: serve game 12008
+    ports:
+      - '12008:12008'
+  match_server:
+    <<: *image
+    command: serve matching 12018
+    ports:
+      - '12018:12018'
+  watch_server:
+    <<: *image
+    command: serve watch 12080
+    ports:
+      - '12080:12080'
   db:
     image: mysql:5.7
     command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
