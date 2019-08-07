@@ -1,0 +1,9 @@
+#!/bin/bash
+
+set -e
+wait-db
+
+cd /app/server
+ruby -E UTF-8 script/import_csv_data.rb tcn
+
+# TODO: Check for other setup tasks

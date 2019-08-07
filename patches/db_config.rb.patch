@@ -1,6 +1,6 @@
 --- server/src/db_config.rb
 +++ server/src/db_config.rb
-@@ -14,9 +14,9 @@
+@@ -14,9 +14,9 @@ module Unlight
    unless $SERVER_NAME
      $SERVER_NAME = "NOT_SV"
    end
@@ -12,11 +12,11 @@
    MEMCACHE_OPTIONS = {
      :timeout =>1,
      :namespace => 'unlight'
-@@ -30,6 +30,7 @@
+@@ -30,7 +30,8 @@ module Unlight
      :database =>"unlight_db",
      :encoding => 'utf8',
      :max_connections => 5,
+-    :loggers => Logger.new(File.dirname(__FILE__).gsub("src","")+"data/#{$SERVER_NAME}_mysqldb.log", 32, 10*1024*1024)
 +    :port => 3306,
-     :loggers => Logger.new(File.dirname(__FILE__).gsub("src","")+"data/#{$SERVER_NAME}_mysqldb.log", 32, 10*1024*1024)
++    :loggers => Logger.new(STDOUT)
    }
-

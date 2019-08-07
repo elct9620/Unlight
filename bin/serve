@@ -1,5 +1,8 @@
 #!/bin/bash
 
+set -e
+wait-db
+
 cd /app/server
 # Create constdata_keys_jp.rb
 ruby script/update_const_keys.rb

@@ -43,16 +43,14 @@ RUN curl -fL -o /tmp/flexsdk.zip http://download.macromedia.com/pub/flex/sdk/fle
 # Add Source Files
 ADD app/ /app
 ADD assets/ /app/client
-# Add fonts
-ADD fonts/wt004.ttf /app/client/data
-ADD fonts/cwming.ttf /app/client/data
-
+ADD fonts/* /app/client/data/
 ADD patches/ /app/patches
-ADD build /app
-ADD serve /app
+ADD bin/ /app/bin
 
 # Setup XMLSocket
 RUN cd /app/server/script/Perl_xinetd && ./install.sh
+
+ENV PATH /app/bin:$PATH
 
 # Prepare necessary directory
 RUN mkdir -p /app/server/bin/pids \

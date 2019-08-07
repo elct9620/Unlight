@@ -7,6 +7,7 @@ Unlight
 
 * Docker
 * Docker Compose
+* make
 
 ## 獲取原始碼
 
@@ -22,20 +23,29 @@ git submodule update --recursive
 
 * wt004.ttf
 * cwming.ttf
+* nbr.ttf
 
-> 還缺一個 `nbr.otf` 但是身為一個練到有超能力（Ｘ）的工程師師也猜不出來，只能等官方釋出了⋯⋯
+> `nbr.ttf` 是叫做 `Bradley_Gratis.ttf` 的字體，官方有改過加入部分文字。
 
-## 編譯
+## 客戶端
 
 目前預設是以繁體中文的環境為目標，已經先上了各種補丁，待穩定後需要將補丁清除以原始的狀態生成。
 
 ```bash
-docker-compose up -d --build && docker-compose run builder ./build
+make build client
 ```
 
 過程中會啟動 MySQL 伺服器以及 Memcached 來讀取遊戲資料，這部分是因為生成客戶端時需要從伺服器讀取一些固定數值直接暫存到客戶端上。
 
-> 完成後可以用 `docker-compose down` 清除掉不需要的環境
+## 伺服端
+
+```bash
+# 啟動
+make start
+
+# 停止
+make stop
+```
 
 ## 測試
 
@@ -45,3 +55,5 @@ ruby -run -e httpd
 ```
 
 這會在本機打開一個網頁伺服器，可以用 `http://localhost:8080` 開啟測試。
+
+> 請自行複製 `app/client/public` 裡面的 XML 檔案到 `dist/public` 並且改為你的伺服器配置。
