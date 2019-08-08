@@ -11,6 +11,7 @@ x-database: &database
 x-image: &image
   image: unlight:builder
   environment: *database
+  restart: unless-stopped
   depends_on:
     - db
     - memcached
