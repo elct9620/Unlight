@@ -28,6 +28,7 @@ package view.image.tutorial
 
         private static const URL:String = "/public/image/tutorial/";
 
+        CONFIG::LOCALE_JP
         private static const NAME_SET:Vector.<String> = Vector.<String>([
                                                                             "tut_start.swf",
                                                                             "tut_startquest.swf",
@@ -46,6 +47,26 @@ package view.image.tutorial
                                                                             "tut_item.swf",
                                                                             "tut_shop.swf",
                                                                             "tut_comp.swf"]);
+        CONFIG::LOCALE_TCN
+        private static const NAME_SET:Vector.<String> = Vector.<String>([
+                                                                    "tut_start_ch.swf",
+                                                                    "tut_startquest_ch.swf",
+                                                                    "tut_startbtl_ch.swf",
+                                                                    "tut_startfinish_ch.swf",
+
+                                                                    "tut_battle_ch.swf",
+                                                                    "tut_change_ch.swf",
+                                                                    "tut_bonus_ch.swf",
+                                                                    "tut_event_ch.swf",
+
+                                                                    "tut_entrance_ch.swf",
+                                                                    "tut_quest_ch.swf",
+                                                                    "tut_deck_ch.swf",
+                                                                    "tut_duel_ch.swf",
+                                                                    "tut_item_ch.swf",
+                                                                    "tut_shop_ch.swf",
+                                                                    "tut_comp_ch.swf"]);
+
         private static const GAME:String = "game";
         private static const NEXT:String = "next";
         private static const EXIT:String = "exit";
